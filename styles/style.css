@@ -1,0 +1,27 @@
+body {
+  /* background: lightsteelblue; */
+  text-align: center;
+
+  /* position: relative; */
+  /* height: 100%; */
+}
+
+main {
+  background: linen;
+  border: solid 1px;
+  border-radius: 8px;
+}
+.content {
+  padding: 20px;
+  height: 100%;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-shadow: linen 1px 1px 0, linen 2px 2px 0, linen 3px 3px 0,
+    linen 4px 4px 0, linen 5px 5px 0;
+}
+.reset_container {
+  margin: auto 0;
+}
