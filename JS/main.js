@@ -15,7 +15,7 @@ content.appendChild(buttonNo)
 
 let intervalSettingsDisplay = document.createElement('div')
 intervalSettingsDisplay.classList.add('setInterval')
-intervalSettingsDisplay.innerHTML="Введите диапазон целых положительных чисел от 1 до 100 и количество попыток(1-15)"
+intervalSettingsDisplay.innerHTML="Enter a range of positive integers from 1 to 100 and the number of attempts (1-15)"
 
 
 let minInp=document.createElement('input')
@@ -45,7 +45,7 @@ buttonTry.innerHTML='try'
 
 let result=document.createElement('div')
 
-buttonNo.onclick=()=>{questionDisp.innerHTML="может передумаешь?"}
+buttonNo.onclick=()=>{questionDisp.innerHTML="Changed your mind?"}
 buttonYes.onclick=()=>{
 
     questionDisp.remove();
@@ -84,18 +84,28 @@ buttonGo.onclick=()=>{
 
     console.log(generateNumber)
 
-    playerMessage.innerHTML=`Привет, я загадал число от ${verifiedMin} до ${verifiedMax} вашего диапазона. Попробуй угадать его за ${verifiedAtt} попыток!`
+    playerMessage.innerHTML=`Hi, I figured a number from ${verifiedMin} till ${verifiedMax} from your range. Try to guess it in ${verifiedAtt} attempts!`
     content.appendChild(playerMessage)
     content.appendChild(playerNum)
     content.appendChild(buttonTry)
 
     buttonTry.onclick=()=>{
-        verifiedAtt--
-        result.innerHTML=checkNumbers(generateNumber,+playerNum.value,verifiedAtt)
+         
+        if(result.innerHTML=="You won"){
+            result.innerHTML="You won"
+        }
+        else if(result.innerHTML=="you loose"){
+            result.innerHTML=="you loose"
+        }
+        else{
+            verifiedAtt--
+            result.innerHTML=checkNumbers(generateNumber,+playerNum.value,verifiedAtt)
+        }
       
         content.appendChild(result)
     }
 }
+
 
 document.querySelector('.reset').onclick = function() {
     location.reload(); // перезагружаем страницу
@@ -131,9 +141,8 @@ function createGenerateNumber(min,max){
 
 function checkNumbers(progNum,yourNum,attend){
     let res = ''
-    console.log(attend)
 
-    if(attend>0){
+    if(attend>=0){
          if(progNum===yourNum){
             res='You won'
         }
