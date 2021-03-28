@@ -1,27 +1,25 @@
-body {
-  /* background: lightsteelblue; */
-  text-align: center;
-
-  /* position: relative; */
-  /* height: 100%; */
-}
-
-main {
-  background: linen;
-  border: solid 1px;
-  border-radius: 8px;
-}
-.content {
-  padding: 20px;
-  height: 100%;
-}
-header {
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-shadow: linen 1px 1px 0, linen 2px 2px 0, linen 3px 3px 0,
     linen 4px 4px 0, linen 5px 5px 0;
+  text-align: center;
 }
-.reset_container {
+.header__element {
   margin: auto 0;
+}
+.content {
+  padding: 20px;
+  height: 100%;
+  text-align: center;
+  background: linen;
+  border: solid 1px;
+  border-radius: 8px;
+}
+.content__element--block {
+  display: block;
+}
+.footer {
+  text-align: center;
 }

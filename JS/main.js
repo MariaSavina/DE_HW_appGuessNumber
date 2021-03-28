@@ -1,9 +1,11 @@
 let questionDisp = document.createElement('div')
-questionDisp.classList.add('maybeStart')
+questionDisp.classList.add('content__element')
 questionDisp.innerHTML="Let's play?"
 
 let buttonYes=document.createElement('button')
+buttonYes.classList.add('content__button')
 let buttonNo=document.createElement('button')
+buttonNo.classList.add('content__button')
 buttonYes.innerHTML='yes'
 buttonNo.innerHTML='no'
 
@@ -14,36 +16,47 @@ content.appendChild(buttonYes)
 content.appendChild(buttonNo)
 
 let intervalSettingsDisplay = document.createElement('div')
-intervalSettingsDisplay.classList.add('setInterval')
+intervalSettingsDisplay.classList.add('content__element')
 intervalSettingsDisplay.innerHTML="Enter a range of positive integers from 1 to 100 and the number of attempts (1-15)"
 
 
 let minInp=document.createElement('input')
+minInp.classList.add('content__element')
 minInp.setAttribute('type','number')
 minInp.setAttribute('value','1')
 let minInpMes=document.createElement('span')
+minInpMes.classList.add('content__element')
 let maxInp=document.createElement('input')
+maxInp.classList.add('content__element')
 maxInp.setAttribute('type','number')
 maxInp.setAttribute('value','100')
 let maxInpMes=document.createElement('span')
+maxInpMes.classList.add('content__element')
 let attInp = document.createElement('input')
+attInp.classList.add('content__element')
 attInp.setAttribute('type','number')
 attInp.setAttribute('value','5')
 let attInpMes=document.createElement('span')
+attInpMes.classList.add('content__element')
 
 
 let buttonGo=document.createElement('button')
+buttonGo.classList.add('content__element')
 buttonGo.innerHTML='go'
 
 let playerMessage=document.createElement('span')
+playerMessage.classList.add('content__element')
 
 let playerNum=document.createElement('input')
+playerNum.classList.add('content__element')
 playerNum.setAttribute('type','number')
 
 let buttonTry=document.createElement('button')
+buttonTry.classList.add('content__element')
 buttonTry.innerHTML='try'
 
 let result=document.createElement('div')
+result.classList.add('content__element')
 
 buttonNo.onclick=()=>{questionDisp.innerHTML="Changed your mind?"}
 buttonYes.onclick=()=>{
@@ -107,7 +120,7 @@ buttonGo.onclick=()=>{
 }
 
 
-document.querySelector('.reset').onclick = function() {
+document.querySelector('.header-item__reset').onclick = function() {
     location.reload(); // перезагружаем страницу
   }
 
