@@ -2,6 +2,8 @@ let questionDisp = document.createElement('div')
 questionDisp.classList.add('content__element')
 questionDisp.innerHTML="Let's play?"
 
+let buttonBox=document.createElement('div')
+buttonBox.classList.add('content__element')
 let buttonYes=document.createElement('button')
 buttonYes.classList.add('content__button')
 let buttonNo=document.createElement('button')
@@ -12,20 +14,25 @@ buttonNo.innerHTML='no'
 let content=document.querySelector('.content')
 
 content.appendChild(questionDisp)
-content.appendChild(buttonYes)
-content.appendChild(buttonNo)
+content.appendChild(buttonBox)
+
+buttonBox.appendChild(buttonYes)
+buttonBox.appendChild(buttonNo)
 
 let intervalSettingsDisplay = document.createElement('div')
 intervalSettingsDisplay.classList.add('content__element')
 intervalSettingsDisplay.innerHTML="Enter a range of positive integers from 1 to 100 and the number of attempts (1-15)"
 
-
+let inpBox1=document.createElement('div')
+inpBox1.classList.add('content__element')
 let minInp=document.createElement('input')
-minInp.classList.add('content__element')
+minInp.classList.add('content__item')
 minInp.setAttribute('type','number')
 minInp.setAttribute('value','1')
 let minInpMes=document.createElement('span')
 minInpMes.classList.add('content__element')
+let inpBox2=document.createElement('div')
+inpBox2.classList.add('content__element')
 let maxInp=document.createElement('input')
 maxInp.classList.add('content__element')
 maxInp.setAttribute('type','number')
@@ -52,7 +59,9 @@ playerNum.classList.add('content__element')
 playerNum.setAttribute('type','number')
 
 let buttonTry=document.createElement('button')
+buttonTry.classList.add('content__element--disabled')
 buttonTry.classList.add('content__element')
+
 buttonTry.innerHTML='try'
 
 let result=document.createElement('div')
@@ -67,10 +76,12 @@ buttonYes.onclick=()=>{
     content.appendChild(intervalSettingsDisplay)
     minInpMes.innerHTML='min'
     content.appendChild(minInpMes)
-    content.appendChild(minInp)
+    content.appendChild(inpBox1)
+    inpBox1.appendChild(minInp)
     maxInpMes.innerHTML='max'
     content.appendChild(maxInpMes)
-    content.appendChild(maxInp)
+    content.appendChild(inpBox2)
+    inpBox2.appendChild(maxInp)
     attInpMes.innerHTML='attend'
     content.appendChild(attInpMes)
     content.appendChild(attInp)
@@ -106,6 +117,7 @@ buttonGo.onclick=()=>{
          
         if(result.innerHTML=="You won"){
             result.innerHTML="You won"
+            // buttonTry.disabled=true
         }
         else if(result.innerHTML=="you loose"){
             result.innerHTML=="you loose"
@@ -158,6 +170,7 @@ function checkNumbers(progNum,yourNum,attend){
     if(attend>=0){
          if(progNum===yourNum){
             res='You won'
+            buttonTry.disabled=true
         }
         else {
             let a
@@ -179,7 +192,10 @@ function checkNumbers(progNum,yourNum,attend){
             }
         }
     }
-    else res='you loose'
+    else {
+        res='you loose'
+        buttonTry.disabled=true
+    }
        
     return res
 }

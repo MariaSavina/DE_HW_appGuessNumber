@@ -16,10 +16,27 @@
   background: linen;
   border: solid 1px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 .content__element--block {
   display: block;
 }
 .footer {
   text-align: center;
+}
+.content__element--disabled:disabled {
+  background: rgb(114, 84, 84);
+}
+button:hover {
+  box-shadow: 0 3px 3px #6b6d6e;
+}
+input:focus {
+  outline: 1px solid blue;
+}
+input {
+  display: block;
+}
+.content__element {
+  margin: 0 auto;
 }
